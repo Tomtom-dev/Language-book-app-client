@@ -3,17 +3,16 @@ import { NavLink} from 'react-router-dom'
 import './Navbar.css'
 
 
+
 export default function Navbar() {
     return (
-        
-            <nav >
+            <nav className="nav-wrapper grey darken-3">
                 <ul>
-                    <NavLink to="/">Home</NavLink>
-                    <NavLink to="/findBook">Find a book</NavLink>
-                    <NavLink to="/MyBooks">My books</NavLink>
-                    <NavLink to="/login">Log in</NavLink>
+                    <NavLink to="/" className="button">Home</NavLink>
+                    <NavLink to="/findBook" className="button">Find a book</NavLink>
+                    <NavLink to="/MyBooks" className="button">My books</NavLink>
+                    <NavLink to="/login" className="button">Log in</NavLink>
                 </ul>
             </nav>
-        
     )
 }

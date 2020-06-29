@@ -1,4 +1,15 @@
 nav ul{
+    background-color: rgb(45, 73, 62);
     display:flex;
     justify-content:space-around;
+    padding:1em;
+    margin:auto;
 }
+
+.button:hover {
+    color: green;
+}
+
+/* .active {
+    background-color:  rgb(52, 97, 97);;
+} */
