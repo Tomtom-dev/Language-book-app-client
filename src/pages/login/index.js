@@ -8,7 +8,7 @@ import './index.css'
 
 export default function Login() {
 
-    ;
+    
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -28,7 +28,7 @@ export default function Login() {
              <h2 style={{textAlign:"center"}}>Login</h2>
             <Container>
                 <Form>
-                <Form.Group  controlId="formBasicEmail" className="form-size">
+                    <Form.Group  controlId="formBasicEmail" className="form-size">
                         
                         <Form.Control 
                         value={email}
@@ -50,7 +50,7 @@ export default function Login() {
                         />
                     </Form.Group>
 
-                    <Form.Group >
+                    <Form.Group style={{textAlign:"center"}} >
                         <Button variant="primary" type="submit" onClick={submitForm}>
                             Log in
                         </Button>
