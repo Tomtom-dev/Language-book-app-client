@@ -7,7 +7,7 @@ const loginSuccess = userWithToken => {
   };
 };
 
-export const login = (email,password,id) =>{
+export const login = (email,password) =>{
     return async (dispatch,getState)=>{
       try {
 
@@ -15,7 +15,9 @@ export const login = (email,password,id) =>{
              email,
              password
          })
-
+        
+         console.log("is it ??", email, password);
+         
          dispatch(loginSuccess(response.data))
          
          dispatch(showMessageWithTimeout("success", false, "welcome back!", 1500));
