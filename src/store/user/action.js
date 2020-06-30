@@ -1,15 +1,23 @@
 import axios from "axios"
 
-export const login = (email,password,history) =>{
+const loginSuccess = userWithToken => {
+  return {
+    type: "LOGIN_SUCCESS",
+    payload: userWithToken
+  };
+};
+
+export const login = (email,password,id) =>{
     return async (dispatch,getState)=>{
       try {
-         const response = await axios.post(`http://localhost:4000/login`,{
+
+         const response = await axios.post(`http://localhost:5000/login`,{
              email,
              password
          })
 
          dispatch(loginSuccess(response.data))
-         history.push("/announce")
+         
          dispatch(showMessageWithTimeout("success", false, "welcome back!", 1500));
     } catch (error){
       if(error.response){
@@ -23,3 +31,31 @@ export const login = (email,password,history) =>{
     }
 }
 }
+
+const clearMessage = () => ({ type: "CLEAR_MESSAGE" });
+
+const setMessage = (variant, dismissable, text) => {
+  return {
+    type: "SET_MESSAGE",
+    payload: {
+      variant,
+      dismissable,
+      text
+    }
+  };
+};
+
+const showMessageWithTimeout = (
+  variant,
+  dismissable,
+  text,
+  timeOutMilliSeconds
+) => {
+  return dispatch => {
+    dispatch(setMessage(variant, dismissable, text));
+
+    const timeout = timeOutMilliSeconds || "DEFAULT_MESSAGE_TIMEOUT";
+
+    setTimeout(() => dispatch(clearMessage()), timeout);
+  };
+};

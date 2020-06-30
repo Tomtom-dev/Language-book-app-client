@@ -2,13 +2,17 @@ import React,{useState} from 'react'
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
+// import {useParams} from 'react-router-dom'
 import { useDispatch} from "react-redux";
 import { Link } from "react-router-dom";
+import {login} from "../../store/user/action"
 import './index.css'
 
 export default function Login() {
 
-    
+    const dispatch= useDispatch()
+
+    // const id = useParams().id
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -16,8 +20,9 @@ export default function Login() {
     function submitForm (event){
        
         event.preventDefault();
-        console.log(email,password);
         
+        console.log(email,password);
+        dispatch(login(email,password))
       
         setEmail("");
         setPassword("");
