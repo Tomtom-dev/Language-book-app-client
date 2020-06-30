@@ -3,7 +3,7 @@ import './index.css'
 
 export default function Homepage() {
     return (
-        <div>
+        <div >
             
             <img 
             alt ="The library"
@@ -11,10 +11,10 @@ export default function Homepage() {
             className="img-presentation"
             ></img>
            
-            <div>
+            <div className="text-presentation">
                 <h2> welcome to the international Open-library </h2>
                 <p>Are you looking for inspiring book in a selected language ?</p>
-                <p>find a</p>
+                <p>find good references and exiting  <a href="/findBook">here</a> </p>
             </div>
         </div>
     )
