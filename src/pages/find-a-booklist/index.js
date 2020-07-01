@@ -6,21 +6,19 @@ import axios from 'axios'
 export default function FindABookList() {
 
     const [language, setLanguage] = useState("")
-    const [word, setWord] = useState("history")
+    const [word, setWord] = useState("search")
     const [result, setResult] = useState([])
 
-    const Key="AIzaSyDaBw7bLrb_TtZx2Ei2os4dSvQJ85nRW9c"
+    const apiKey=process.env.REACT_APP_GOOGLE_MAPS_API_KEY
     
     // fetch the data from google book api
     useEffect(() => {
         const fetchData = async()=>{
-            const response= await axios.get(`https://www.googleapis.com/books/v1/volumes?q=${word}&key=${Key}&maxResults=40`)
+            const response= await axios.get(`https://www.googleapis.com/books/v1/volumes?q=${word}+langRestrict:${language}&key=${apiKey}&maxResults=40`)
             setResult(response.data)
-        }
-        
+        } 
         fetchData()
-        
-    }, [])
+    }, [language,apiKey,word])
         
     console.log(result);
     
