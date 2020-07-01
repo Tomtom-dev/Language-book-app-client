@@ -3,6 +3,7 @@ import { useParams, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getBookDetails } from "../../store/books/action";
 import { selectBookDetails } from "../../store/books/selector";
+import "./index.css";
 
 export default function BookDetails() {
   const { id } = useParams();
@@ -15,20 +16,33 @@ export default function BookDetails() {
   console.log("ID", id);
 
   return (
-    <div>
-      Book Details
+    <div className='div_main'>
       {bookDetails.map((details) => {
         return (
-          <div>
-            <p>{details.name}</p>
-            <p>{details.author}</p>
-            <img
-              src={details.imageUrl}
-              alt='book cover'
-              height='200px'
-              width='200px'
-            />
-            <p>{details.description}</p>
+          <div className='div_book_detais'>
+            <div className='image-book_details'>
+              <img
+                src={details.imageUrl}
+                alt='book cover'
+                height='400px'
+                width='300px'
+              />
+            </div>
+            <div>
+              <p>
+                <b className='div_left'>Title</b>
+                {details.name}
+              </p>
+              <p>
+                <b className='div_left'>Authour</b>
+                {details.author}
+              </p>
+              <p>
+                <b className='div_left'>Description</b>
+                {details.description}
+              </p>
+              <button>Read this book</button>
+            </div>
           </div>
         );
       })}
