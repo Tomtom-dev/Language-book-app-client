@@ -1,30 +1,27 @@
 import React,{useState, useEffect} from 'react'
-import {useDispatch} from "react-redux"
+import {useDispatch, useSelector} from "react-redux"
 import { Button, Form, FormGroup, Label, Input} from 'reactstrap';
 import {fetchProducts} from "../../store/books/action"
+import {getBooksRespond} from "../../store/books/selector"
 
 import './index.css'
-import axios from 'axios'
+
 
 export default function FindABookList() {
 
     const [language, setLanguage] = useState("")
     const [word, setWord] = useState("search")
-    const [result, setResult] = useState([])
-
-
+    
     const dispatch = useDispatch()
-    const apiKey=process.env.REACT_APP_GOOGLE_MAPS_API_KEY
+    const result = useSelector(getBooksRespond)
     
     // fetch the data from google book api
-    useEffect(() => {
-       dispatch(fetchProducts(language,word))
-    }, [])
+    // useEffect(() => {
+    //    dispatch(fetchProducts(language,word))
+    // }, [dispatch,language,word])
     
     function onSubmit(event){
         event.preventDefault()
-        console.log(language);
-        console.log(word); 
         dispatch(fetchProducts({language,word}))   
     }
     
@@ -58,6 +55,10 @@ export default function FindABookList() {
                     <Button onClick={onSubmit}>search</Button>
                     
                 </FormGroup>
+
+                {result.map(book =>(
+                    <img key={book.id} src={book.volumeInfo.imageLinks.thumbnail} alt={book.title}/>
+                ))}
         </div>
     )
 }

@@ -12,7 +12,7 @@ const apiKey=process.env.REACT_APP_GOOGLE_MAPS_API_KEY
 export const fetchProducts = (newList) => async (dispatch, getState) =>{
     try{
         const {language,word}= newList
-        const response= await axios.get(`https://www.googleapis.com/books/v1/volumes?q=${word}+langRestrict:${language}&key=${apiKey}&maxResults=40`)
+        const response= await axios.get(`https://www.googleapis.com/books/v1/volumes?q=${word}&filter=ebooks&langRestrict=${language}&orderBy=relevance&key=${apiKey}&maxResults=40`)
         console.log(language);
         console.log(word); 
         console.log('data in thunk action', response.data.items);
