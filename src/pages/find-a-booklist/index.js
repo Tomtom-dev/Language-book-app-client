@@ -1,6 +1,7 @@
 import React,{useState} from 'react'
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import './index.css'
+import axios from 'axios'
 
 export default function FindABookList() {
 
@@ -14,18 +15,18 @@ export default function FindABookList() {
     return (
         <div>
             <h2>Find a booklist</h2>
-            <Form>
-                <FormGroup style={{display:"flex"}}>
+            <Form className="form-booklist">
+                <FormGroup  className="input-select-size">
                     <Label>select a language</Label>
                     <Input className="input-select-size" type="select" onChange={event =>setLanguage(event.target.value)} value={language}>
                         <option selected="selected">choose a language</option>
                         <option>EN</option>
                         <option>FR</option>
                         <option>NL</option>
-                        
                     </Input>
                 </FormGroup>
-                <FormGroup style={{display:"flex"}}>
+
+                <FormGroup className="input-select-size">
                     <Label>select a type </Label>
                     <Input type="select" onChange={event =>setType(event.target.value)} value={type}>
                         <option selected="selected">choose a type</option>
