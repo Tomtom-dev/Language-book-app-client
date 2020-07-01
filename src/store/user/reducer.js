@@ -15,7 +15,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         loading: false,
-        books: action.payload,
+        books: [action.payload],
       };
     }
     case "USER_BOOKS_ERROR": {
