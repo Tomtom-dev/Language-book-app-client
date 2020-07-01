@@ -8,16 +8,16 @@ export const login = (email, password, history) => {
         password,
       });
 
-      dispatch(loginSuccess(response.data));
+      //dispatch(loginSuccess(response.data));
       history.push("/announce");
-      dispatch(showMessageWithTimeout("success", false, "welcome back!", 1500));
+      //dispatch(showMessageWithTimeout("success", false, "welcome back!", 1500));
     } catch (error) {
       if (error.response) {
         console.log(error.response.data.message);
-        dispatch(setMessage("danger", true, error.response.data.message));
+        //dispatch(setMessage("danger", true, error.response.data.message));
       } else {
         console.log(error.message);
-        dispatch(setMessage("danger", true, error.message));
+        //dispatch(setMessage("danger", true, error.message));
       }
     }
   };
@@ -27,7 +27,7 @@ export const getUserBooks = (id) => {
   return async (dispatch, getState) => {
     dispatch({ type: "USER_BOOKS_LOADING" });
     try {
-      const response = await axios.get(`http://localhost:4000/user/${id}`);
+      const response = await axios.get(`http://localhost:5000/user/${id}`);
 
       dispatch({ type: "USER_BOOKS_LOADED", payload: response.data });
     } catch (error) {
