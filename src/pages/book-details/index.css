@@ -1,0 +1,21 @@
+.div_main {
+    padding: 5%;
+    padding-bottom: 100%;
+}
+
+.div_book_detais {
+    text-align: center;
+    padding: 10%;
+    float: right;
+}
+
+.image-book_details {
+    margin-left: 50px;
+    margin-bottom: 1000px;
+    float: left;
+}
+
+.div_left {
+    float: left;
+    padding-left: 100px;
+}
