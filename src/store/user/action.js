@@ -31,7 +31,7 @@ export const getUserBooks = (id) => {
 
       dispatch({ type: "USER_BOOKS_LOADED", payload: response.data });
     } catch (error) {
-      dispatch({ type: "USER_BOOK_ERROR" });
+      dispatch({ type: "USER_BOOKS_ERROR" });
     }
   };
 };
