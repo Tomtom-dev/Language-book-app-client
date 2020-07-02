@@ -18,6 +18,7 @@ export default function BookDetails() {
   return (
     <div className='div_main'>
       {bookDetails.map((details) => {
+        console.log("BookDetails", details);
         return (
           <div className='div_book_detais'>
             <div className='image-book_details'>
