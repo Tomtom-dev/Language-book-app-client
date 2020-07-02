@@ -27,7 +27,7 @@ export default function Login() {
         event.preventDefault();
         
         console.log(email,password);
-        dispatch(login(email,password))
+        dispatch(login({email,password}))
       
         setEmail("");
         setPassword("");

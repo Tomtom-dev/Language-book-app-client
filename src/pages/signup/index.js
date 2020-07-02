@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import{Container,Button, Form, Label, Input, FormGroup} from 'reactstrap'
 import { useDispatch } from "react-redux";
+import {signUp} from  "../../store/user/action"
 
 export default function SignUp() {
 
@@ -15,7 +16,7 @@ export default function SignUp() {
 
         console.log(name,email,password);
         
-        // dispatch(signUp(name,email,password))
+        dispatch(signUp(name,email,password))
         setEmail("");
         setPassword("");
         setName("");

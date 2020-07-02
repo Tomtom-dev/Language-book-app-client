@@ -7,10 +7,11 @@ const loginSuccess = userWithToken => {
   };
 };
 
-export const login = (email,password) =>{
+export const login = (newLogin) =>{
     return async (dispatch,getState)=>{
       try {
 
+        const {email,password}= newLogin
          const response = await axios.post(`http://localhost:5000/login`,{
              email,
              password
@@ -62,5 +63,31 @@ const showMessageWithTimeout = (
   };
 };
 
+// create new user
 
-
+export const signUp = (name, email, password) => {
+  return async (dispatch, getState) => {
+    
+    try {
+      const response = await axios.post(`http://localhost:5000/signup`, {
+        name,
+        email,
+        password,
+       
+      });
+      console.log('search',response);
+      dispatch(loginSuccess(response.data));
+      dispatch(showMessageWithTimeout("success", true, "account created"));
+      ;
+    } catch (error) {
+      if (error.response) {
+        console.log(error.response.data.message);
+        dispatch(setMessage("danger", true, error.response.data.message));
+      } else {
+        console.log(error.message);
+        dispatch(setMessage("danger", true, error.message));
+      }
+      
+    }
+  };
+};
