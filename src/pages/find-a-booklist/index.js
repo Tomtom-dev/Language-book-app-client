@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { fetchProducts, addBooks } from "../../store/books/action";
 import { getBooksRespond } from "../../store/books/selector";
+import {addToSelection} from "../../store/bookSelection/action"
+import {getUserInfosId} from "../../store/user/selector"
 
 import "./index.css";
 
@@ -13,7 +15,8 @@ export default function FindABookList() {
 
   const dispatch = useDispatch();
   const result = useSelector(getBooksRespond);
-  console.log("Book response", result);
+  const idUser= useSelector(getUserInfosId)
+  // console.log("Book response", result);
 
   // fetch the data from google book api
   // useEffect(() => {
@@ -37,31 +40,44 @@ export default function FindABookList() {
     dispatch(fetchProducts({ language, word }));
   }
 
-  function addBook() {
-    console.log("Added");
+  function addBook(event) {
+    event.preventDefault();
+    console.log("Added", event.target.id, " TESTING ", result);
 
-    const booksData = result.map((books) => {
-      const data = {
-        name: books.volumeInfo.title,
-        author: books.volumeInfo.authors,
-        description: books.volumeInfo.description,
-        category: books.volumeInfo.categories,
-        language: books.volumeInfo.language,
-        imageUrl: books.volumeInfo.imageLinks.thumbnail,
-      };
-      console.log("Data", data);
-      dispatch(addBooks(data));
+    const booksData = result.find((books) => {
+      if (books.id === event.target.id) {
+        return books;
+      }
     });
+
+    // Data for Post request
+    const data = {
+      name: booksData.volumeInfo.title,
+      author: booksData.volumeInfo.authors.join(","),
+      description: booksData.volumeInfo.description,
+      category: booksData.volumeInfo.categories.join(","),
+      language: booksData.volumeInfo.language,
+      imageUrl: booksData.volumeInfo.imageLinks.thumbnail,
+      userId: idUser,
+    };
+    console.log("Data", data);
+    dispatch(addBooks(data));
+    dispatch(addToSelection(data))
+
+    console.log("BOOKS DETAILS ", booksData, "..... DATA ........ ", data);
   }
   console.log("Book Id", bookId);
 
+  console.log('IDDDD', idUser);
+  
+
   return (
     <div>
-      <h2>Find a booklist</h2>
+      <h2>Find a book</h2>
 
       <Form className='form-booklist'>
         <FormGroup className='input-select-size'>
-          <Label>select a type </Label>
+          <Label>choose a book </Label>
           <Input
             type='text'
             placeholder='search'
@@ -104,10 +120,10 @@ export default function FindABookList() {
                   alt={book.title}
                 />
                 <p>{book.volumeInfo.authors}</p>
-                <p>{book.id}</p>
+                {/* <p>{book.id}</p> */}
                 <div className='div-button_find_book'>
                   <button
-                    value={book.id}
+                    id={book.id}
                     onClick={addBook}
                     className='button_find_books'>
                     Add

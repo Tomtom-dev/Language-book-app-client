@@ -3,3 +3,5 @@ export function selectUserBooks(reduxState) {
 }
 
 export const getUserInfos = state => state.userReducer
+
+export const getUserInfosId = state => state.userReducer.id
