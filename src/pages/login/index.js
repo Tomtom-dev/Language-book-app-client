@@ -2,36 +2,26 @@ import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
-<<<<<<< HEAD
 // import {useParams} from 'react-router-dom'
 import { useDispatch} from "react-redux";
 import { Link } from "react-router-dom";
 import {login} from "../../store/user/action"
 import './index.css'
-=======
-import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
-import "./index.css";
->>>>>>> development
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-<<<<<<< HEAD
     const dispatch= useDispatch()
     // const id = useParams().id
-=======
   function submitForm(event) {
     event.preventDefault();
     console.log(email, password);
->>>>>>> development
 
     setEmail("");
     setPassword("");
   }
 
-<<<<<<< HEAD
     function submitForm (event){
        
         event.preventDefault();
@@ -42,7 +32,6 @@ export default function Login() {
         setEmail("");
         setPassword("");
     }
-=======
   return (
     <div>
       <h2 style={{ textAlign: "center" }}>Login</h2>
@@ -57,7 +46,6 @@ export default function Login() {
               required
             />
           </Form.Group>
->>>>>>> development
 
           <Form.Group controlId='formBasicPassword' className='form-size'>
             <Form.Control

@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getBookDetails } from "../../store/books/action";
-import { selectBookDetails } from "../../store/books/selector";
+import { getBookDetails } from "../../store/booksDetail/action";
+import { selectBookDetails } from "../../store/booksDetail/selector";
 import "./index.css";
 
 export default function BookDetails() {
