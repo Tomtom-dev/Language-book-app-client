@@ -1,6 +1,7 @@
 const initialState = {
-loading: true,
+  loading: true,
   books: [],
+  details: [],
 };
 
 export default (state = initialState, action) => {
@@ -19,6 +20,25 @@ export default (state = initialState, action) => {
       };
     }
     case "USER_BOOKS_ERROR": {
+      return {
+        ...state,
+        loading: true,
+      };
+    }
+    case "BOOK_DETAILS_LOADING": {
+      return {
+        ...state,
+        loading: true,
+      };
+    }
+    case "BOOKS_DETAILS_LOADED": {
+      return {
+        ...state,
+        loading: false,
+        details: [action.payload],
+      };
+    }
+    case "BOOKS_DETAILS_ERROR": {
       return {
         ...state,
         loading: true,

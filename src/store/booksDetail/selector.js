@@ -1,3 +1,3 @@
 export function selectBookDetails(reduxState) {
-    return reduxState.books.details;
-  }
+  return reduxState.books.details;
+}

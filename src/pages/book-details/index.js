@@ -17,6 +17,7 @@ export default function BookDetails() {
 
   return (
     <div className='div_main'>
+      Book Details
       {bookDetails.map((details) => {
         console.log("BookDetails", details);
         return (
@@ -35,13 +36,18 @@ export default function BookDetails() {
                 {details.name}
               </p>
               <p>
-                <b className='div_left'>Authour</b>
+                <b className='div_left'>Author</b>
                 {details.author}
+              </p>
+              <p>
+                <b className='div_left'>Language</b>
+                {details.language}
               </p>
               <p>
                 <b className='div_left'>Description</b>
                 {details.description}
               </p>
+
               <button>Read this book</button>
             </div>
           </div>
