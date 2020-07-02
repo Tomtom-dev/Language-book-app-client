@@ -1,0 +1,1 @@
+export const selectUserDetail = state = state.userReducer

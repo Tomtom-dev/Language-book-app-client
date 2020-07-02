@@ -7,10 +7,11 @@ const loginSuccess = userWithToken => {
   };
 };
 
-export const login = (email,password) =>{
+export const login = (newLogin) =>{
     return async (dispatch,getState)=>{
       try {
 
+        const {email,password}= newLogin
          const response = await axios.post(`http://localhost:5000/login`,{
              email,
              password
