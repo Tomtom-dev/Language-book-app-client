@@ -16,8 +16,6 @@ export const login = (newLogin) =>{
              email,
              password
          })
-        
-         console.log("is it ??", email, password);
          
          dispatch(loginSuccess(response.data))
          

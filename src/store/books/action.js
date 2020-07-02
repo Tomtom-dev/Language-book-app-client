@@ -15,9 +15,6 @@ export const fetchProducts = (newList) => async (dispatch, getState) => {
     const response = await axios.get(
       `https://www.googleapis.com/books/v1/volumes?q=${word}&filter=ebooks&langRestrict=${language}&orderBy=relevance&key=${apiKey}&maxResults=20`
     );
-    console.log(language);
-    console.log(word);
-    console.log("data in thunk action", response.data.items);
     dispatch(productsFetched(response.data.items));
   } catch (error) {
     console.log(error);

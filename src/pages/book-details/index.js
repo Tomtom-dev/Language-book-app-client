@@ -13,7 +13,7 @@ export default function BookDetails() {
   useEffect(() => {
     dispatch(getBookDetails(id));
   }, [getBookDetails, id]);
-  console.log("ID", id);
+ 
 
   return (
     <div className='div_main'>

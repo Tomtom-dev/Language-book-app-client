@@ -25,8 +25,6 @@ export default function Login() {
     function submitForm (event){
        
         event.preventDefault();
-        
-        console.log(email,password);
         dispatch(login({email,password}))
       
         setEmail("");
