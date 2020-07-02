@@ -1,15 +1,14 @@
-const initialState= { 
-    list :[],
-}
-
-
+const initialState = {
+  list: [],
+};
 
 export default (state = initialState, action) => {
   switch (action.type) {
     case "BOOK_FETCHED":
       return {
-          ...state, list :[...action.payload]
-      }
+        ...state,
+        list: [...action.payload],
+      };
     case "BOOKS_DETAILS_LOADING": {
       return {
         ...state,
@@ -27,6 +26,12 @@ export default (state = initialState, action) => {
       return {
         ...state,
         loading: true,
+      };
+    }
+    case "ADD_BOOKS": {
+      return {
+        ...state,
+        books: [],
       };
     }
     default:
