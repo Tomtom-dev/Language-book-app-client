@@ -1,5 +1,6 @@
 const initialState = {
   list: [],
+  selectedBooks:[]
 };
 
 export default (state = initialState, action) => {
@@ -9,31 +10,13 @@ export default (state = initialState, action) => {
         ...state,
         list: [...action.payload],
       };
-    case "BOOKS_DETAILS_LOADING": {
+    
+    case "SELECTED_BOOKS":{
       return {
         ...state,
-        loading: true,
-      };
+        selectedBooks :[...action.payload]}
     }
-    case "BOOKS_DETAILS_LOADED": {
-      return {
-        ...state,
-        loading: false,
-        details: [action.payload],
-      };
-    }
-    case "BOOKS_DETAILS_ERROR": {
-      return {
-        ...state,
-        loading: true,
-      };
-    }
-    case "ADD_BOOKS": {
-      return {
-        ...state,
-        books: [],
-      };
-    }
+      
     default:
       return state;
   }

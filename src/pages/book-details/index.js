@@ -2,14 +2,17 @@ import React, { useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getBookDetails } from "../../store/booksDetail/action";
+
 import { selectBookDetails } from "../../store/booksDetail/selector";
 import "./index.css";
 
 export default function BookDetails() {
   const { id } = useParams();
   const bookDetails = useSelector(selectBookDetails);
+  
   console.log("Selectors", bookDetails);
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(getBookDetails(id));
   }, [getBookDetails, id]);

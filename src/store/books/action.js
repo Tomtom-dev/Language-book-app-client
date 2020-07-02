@@ -7,6 +7,11 @@ export const productsFetched = (books) => {
   };
 };
 
+export const showSelectedBooks = (allBooks) =>({
+  type:"SELECTED_BOOKS",
+  payload: allBooks
+})
+
 const apiKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
 
 export const fetchProducts = (newList) => async (dispatch, getState) => {
@@ -35,4 +40,22 @@ export function addBooks(data) {
       }
     }
   };
+}
+
+//get books corrresponding to the userId
+export const getbookSelected = () => async (dispatch, getState) =>{
+  try{
+   const userId = getState().userReducer.id
+   console.log('IDDDDDDDDDD', userId);
+   
+
+   const response = await axios.get(`http://localhost:5000/bookselection/${userId}`)
+   console.log("RESPONSE", response);
+   
+
+   dispatch(showSelectedBooks(response.data))
+  }catch(error){
+    console.log(error);
+    
+  }
 }
