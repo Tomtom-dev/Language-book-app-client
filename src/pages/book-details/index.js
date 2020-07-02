@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getBookDetails } from "../../store/booksDetail/action";
 
@@ -15,7 +15,7 @@ export default function BookDetails() {
 
   useEffect(() => {
     dispatch(getBookDetails(id));
-  }, [getBookDetails, id]);
+  }, [dispatch, id]);
  
 
   return (

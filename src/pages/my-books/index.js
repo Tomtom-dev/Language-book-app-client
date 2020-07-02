@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserBooks } from "../../store/booksDetail/action";
 import { selectUserBooks } from "../../store/user/selector";
-import {getbookSelected} from "../../store/books/action"
+// import {getbookSelected} from "../../store/books/action"
 import {getBooksSelection} from "../../store/books/selector"
 import {getUserInfosId} from '../../store/user/selector'
 import "./index.css";
@@ -11,11 +11,10 @@ import "./index.css";
 export default function MyBooks() {
   const userBooks = useSelector(selectUserBooks);
   const bookSelected= useSelector(getBooksSelection)
-  console.log("userBooks", userBooks);
   const dispatch = useDispatch();
   const id = useSelector(getUserInfosId);
 
-  console.log("BOOKSELECTED", bookSelected);
+  
   
 
   useEffect(() => {

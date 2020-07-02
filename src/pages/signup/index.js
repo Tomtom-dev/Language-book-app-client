@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import{Container,Button, Form, Label, Input, FormGroup} from 'reactstrap'
+import{Container,Button, Form, Input, FormGroup} from 'reactstrap'
 import { useDispatch } from "react-redux";
 import {signUp} from  "../../store/user/action"
 
@@ -13,14 +13,11 @@ export default function SignUp() {
 
     function submitForm(event){
         event.preventDefault();
-
-        console.log(name,email,password);
         
         dispatch(signUp(name,email,password))
         setEmail("");
         setPassword("");
         setName("");
-        
     }
 
     return (
@@ -44,7 +41,6 @@ export default function SignUp() {
 
                 <div>
                 <FormGroup >
-                    
                 <Button color="primary"  type="submit" onClick={submitForm}>Register</Button>
                 </FormGroup>
                 

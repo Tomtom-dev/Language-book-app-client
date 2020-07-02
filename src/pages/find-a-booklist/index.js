@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { fetchProducts, addBooks } from "../../store/books/action";
@@ -11,29 +11,12 @@ import "./index.css";
 export default function FindABookList() {
   const [language, setLanguage] = useState("");
   const [word, setWord] = useState("");
-  const [bookId, setBookId] = useState();
+  // const [bookId, setBookId] = useState();
 
   const dispatch = useDispatch();
   const result = useSelector(getBooksRespond);
   const idUser= useSelector(getUserInfosId)
-  // console.log("Book response", result);
 
-  // fetch the data from google book api
-  // useEffect(() => {
-  //    dispatch(fetchProducts(language,word))
-  // }, [dispatch,language,word])
-  //   const booksData = result.map((books) => {
-  //     const data = {
-  //       name: books.volumeInfo.authors,
-  //     };
-  //     console.log("Data", data);
-  //   });
-  //   console.log("Details", booksData);
-  //   const data = result.find((books) => {
-  //     return books.id;
-  //   });
-
-  //   console.log("data", data);
 
   function onSubmit(event) {
     event.preventDefault();
@@ -66,9 +49,7 @@ export default function FindABookList() {
 
     console.log("BOOKS DETAILS ", booksData, "..... DATA ........ ", data);
   }
-  console.log("Book Id", bookId);
-
-  console.log('IDDDD', idUser);
+ 
   
 
   return (
@@ -113,9 +94,9 @@ export default function FindABookList() {
           ))} */}
           {result.map((book) => {
             return (
-              <div>
+              <div key={book.id}>
                 <img
-                  key={book.id}
+                  
                   src={book.volumeInfo.imageLinks.thumbnail}
                   alt={book.title}
                 />
