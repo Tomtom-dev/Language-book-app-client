@@ -1,1 +1,3 @@
-export const selectUserDetail = state = state.userReducer
+export function selectUserBooks(reduxState) {
+  return reduxState.user.books;
+}

@@ -1,0 +1,8 @@
+.input-select-size{
+    width:25em;
+}
+
+.form-booklist{
+    display:flex;
+    justify-content: space-around;
+}
