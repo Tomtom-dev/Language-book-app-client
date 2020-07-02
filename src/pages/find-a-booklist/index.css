@@ -1,8 +1,31 @@
-.input-select-size{
-    width:25em;
+.input-select-size {
+    width: 25em;
 }
 
-.form-booklist{
-    display:flex;
+.form-booklist {
+    display: flex;
     justify-content: space-around;
+}
+
+.image_find_book {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    /* grid-template-rows: 25% 100px auto; */
+    grid-gap: 5%;
+}
+
+.image_border {
+    padding: 50px;
+}
+
+.div-button_find_book {
+    padding: 30px;
+}
+
+.button_find_books {
+    border: none;
+    background-color: burlywood;
+    color: chocolate;
+    border-radius: 10%;
+    width: 50px;
 }
