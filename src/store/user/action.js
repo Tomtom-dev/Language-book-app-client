@@ -35,6 +35,8 @@ export const login = (newLogin) =>{
 }
 }
 
+export const logOut = () => ({ type: "LOG_OUT" });
+
 const clearMessage = () => ({ type: "CLEAR_MESSAGE" });
 
 const setMessage = (variant, dismissable, text) => {
