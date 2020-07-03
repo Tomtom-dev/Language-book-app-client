@@ -9,11 +9,11 @@
 
 .books {
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     width: 200px;
     height: 200px;
-    margin: 20px;
     text-align: center;
     padding: 20px;
 }
@@ -21,7 +21,7 @@
 .wrapper {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 .button_my_page {
@@ -31,3 +31,15 @@
     background-color: darkcyan;
     color: whitesmoke;
 }
+
+.test{
+    border : 5px solid rgb(27, 233, 216);
+    border-radius: 8px;
+    padding : 3em;
+    margin-left: 5em;
+    background-color: rgba(124, 230, 212, 0.993);
+}
+
+.books :hover {
+    box-shadow: 30px 20px 16px 0 rgba(0,0,0,0.2);
+  }

@@ -81,7 +81,7 @@ export default function FindABookList() {
           </Input>
         </FormGroup>
       </Form>
-      <FormGroup style={{ paddingLeft: "2%" }}>
+      <FormGroup style={{ paddingLeft: "10%" }}>
         <Button onClick={onSubmit}>search</Button>
       </FormGroup>
       <div className='image_border'>
