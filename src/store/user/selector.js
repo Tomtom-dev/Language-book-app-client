@@ -2,6 +2,8 @@ export function selectUserBooks(reduxState) {
   return reduxState.user.books;
 }
 
-export const getUserInfos = state => state.userReducer
+export const getUserInfos = (state) => state.userReducer;
 
-export const getUserInfosId = state => state.userReducer.id
+export const getUserInfosId = (state) => state.userReducer.id;
+
+export const selectToken = (state) => state.userReducer.token;
