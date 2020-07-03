@@ -50,10 +50,8 @@ export default function BookDetails() {
                 {details.description}
               </p>
               
-              <form action={details.link}>
-                  <input type="submit" value="Read this Book" />
-              </form>
-              
+              <a target="_blank" href={details.link} class="button-ebook">Go to the book</a>
+
             </div>
           </div>
         );
