@@ -1,10 +1,11 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { fetchProducts, addBooks } from "../../store/books/action";
 import { getBooksRespond } from "../../store/books/selector";
-import {addToSelection} from "../../store/bookSelection/action"
-import {getUserInfosId} from "../../store/user/selector"
+import { addToSelection } from "../../store/bookSelection/action";
+import { getUserInfosId, selectToken } from "../../store/user/selector";
 
 import "./index.css";
 
@@ -15,8 +16,11 @@ export default function FindABookList() {
 
   const dispatch = useDispatch();
   const result = useSelector(getBooksRespond);
-  const idUser= useSelector(getUserInfosId)
-
+  const idUser = useSelector(getUserInfosId);
+  console.log("User Info", idUser);
+  const history = useHistory();
+  //   const token = useSelector(selectToken);
+  //   console.log(token);
 
   function onSubmit(event) {
     event.preventDefault();
@@ -41,17 +45,16 @@ export default function FindABookList() {
       category: booksData.volumeInfo.categories.join(","),
       language: booksData.volumeInfo.language,
       imageUrl: booksData.volumeInfo.imageLinks.thumbnail,
-      link : booksData.accessInfo.webReaderLink,
+      link: booksData.accessInfo.webReaderLink,
       userId: idUser,
     };
     console.log("Data", data);
     dispatch(addBooks(data));
-    dispatch(addToSelection(data))
+    dispatch(addToSelection(data));
+    history.push("/MyBooks");
 
     console.log("BOOKS DETAILS ", booksData, "..... DATA ........ ", data);
   }
- 
-  
 
   return (
     <div>
@@ -97,20 +100,21 @@ export default function FindABookList() {
             return (
               <div key={book.id}>
                 <img
-                  
                   src={book.volumeInfo.imageLinks.thumbnail}
                   alt={book.title}
                 />
                 <p>{book.volumeInfo.authors}</p>
                 {/* <p>{book.id}</p> */}
-                <div className='div-button_find_book'>
-                  <button
-                    id={book.id}
-                    onClick={addBook}
-                    className='button_find_books'>
-                    Add
-                  </button>
-                </div>
+                {idUser !== undefined && (
+                  <div className='div-button_find_book'>
+                    <button
+                      id={book.id}
+                      onClick={addBook}
+                      className='button_find_books'>
+                      Add
+                    </button>
+                  </div>
+                )}
               </div>
             );
           })}

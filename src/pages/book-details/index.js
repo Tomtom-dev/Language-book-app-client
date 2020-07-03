@@ -9,7 +9,7 @@ import "./index.css";
 export default function BookDetails() {
   const { id } = useParams();
   const bookDetails = useSelector(selectBookDetails);
-  
+
   console.log("Selectors", bookDetails);
   const dispatch = useDispatch();
 
