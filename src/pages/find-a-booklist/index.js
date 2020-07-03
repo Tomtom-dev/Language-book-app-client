@@ -58,7 +58,7 @@ export default function FindABookList() {
 
   return (
     <div>
-      <h2>Find a book</h2>
+      <h2 style={{textAlign:"center"}}>Find a book</h2>
 
       <Form className='form-booklist'>
         <FormGroup className='input-select-size'>
@@ -84,7 +84,7 @@ export default function FindABookList() {
           </Input>
         </FormGroup>
       </Form>
-      <FormGroup style={{ paddingLeft: "2%" }}>
+      <FormGroup style={{ paddingLeft: "10%" }}>
         <Button onClick={onSubmit}>search</Button>
       </FormGroup>
       <div className='image_border'>

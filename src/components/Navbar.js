@@ -9,26 +9,29 @@ export default function Navbar() {
   const dispatch = useDispatch();
   const userId = useSelector(getUserInfos).id;
 
+    
+    
+    
   return (
     <nav className='nav-wrapper grey darken-3'>
       <ul>
-        <NavLink exact to='/' className='button'>
+        <NavLink exact to='/' className='button-navbar'>
           Home
         </NavLink>
-        <NavLink to='/findBook' className='button'>
+        <NavLink to='/findBook' className='button-navbar'>
           Find a book
         </NavLink>
         {userId ? (
-          <NavLink to='/MyBooks' className='button'>
+          <NavLink to='/MyBooks' className='button-navbar'>
             My books
           </NavLink>
         ) : null}
         {userId ? (
-          <NavLink to='/homepage' onClick={() => dispatch(logOut())}>
+          <NavLink className="button-navbar" to='/homepage' onClick={() => dispatch(logOut())}>
             Log out
           </NavLink>
         ) : (
-          <NavLink to='/login' className='button'>
+          <NavLink to='/login' className='button-navbar'>
             Log in
           </NavLink>
         )}
