@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { fetchProducts, addBooks } from "../../store/books/action";
 import { getBooksRespond } from "../../store/books/selector";
-import {addToSelection} from "../../store/bookSelection/action"
-import {getUserInfosId} from "../../store/user/selector"
+import { addToSelection } from "../../store/bookSelection/action";
+import { getUserInfosId } from "../../store/user/selector";
 
 import "./index.css";
 
@@ -15,8 +15,8 @@ export default function FindABookList() {
 
   const dispatch = useDispatch();
   const result = useSelector(getBooksRespond);
-  const idUser= useSelector(getUserInfosId)
-
+  const idUser = useSelector(getUserInfosId);
+  console.log("User Info", idUser);
 
   function onSubmit(event) {
     event.preventDefault();
@@ -45,12 +45,10 @@ export default function FindABookList() {
     };
     console.log("Data", data);
     dispatch(addBooks(data));
-    dispatch(addToSelection(data))
+    dispatch(addToSelection(data));
 
     console.log("BOOKS DETAILS ", booksData, "..... DATA ........ ", data);
   }
- 
-  
 
   return (
     <div>
@@ -96,12 +94,12 @@ export default function FindABookList() {
             return (
               <div key={book.id}>
                 <img
-                  
                   src={book.volumeInfo.imageLinks.thumbnail}
                   alt={book.title}
                 />
                 <p>{book.volumeInfo.authors}</p>
                 {/* <p>{book.id}</p> */}
+
                 <div className='div-button_find_book'>
                   <button
                     id={book.id}

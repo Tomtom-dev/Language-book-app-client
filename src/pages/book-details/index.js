@@ -9,14 +9,13 @@ import "./index.css";
 export default function BookDetails() {
   const { id } = useParams();
   const bookDetails = useSelector(selectBookDetails);
-  
+
   console.log("Selectors", bookDetails);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getBookDetails(id));
   }, [dispatch, id]);
- 
 
   return (
     <div className='div_main'>
