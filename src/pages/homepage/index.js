@@ -14,7 +14,7 @@ export default function Homepage() {
             <div className="text-presentation">
                 <h2> welcome to the international Open-library </h2>
                 <p>Are you looking for inspiring book in a selected language ?</p>
-                <p>find good references and exiting  <a href="/findBook">here</a> </p>
+                <p>find good references and exiting ebooks <a href="/findBook">here</a> </p>
             </div>
         </div>
     )

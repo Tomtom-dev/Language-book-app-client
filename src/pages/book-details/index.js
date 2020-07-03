@@ -16,7 +16,6 @@ export default function BookDetails() {
   useEffect(() => {
     dispatch(getBookDetails(id));
   }, [dispatch, id]);
- 
 
   return (
     <div className='div_main'>
@@ -50,8 +49,11 @@ export default function BookDetails() {
                 <b className='div_left'>Description</b>
                 {details.description}
               </p>
-
-              <button>Read this book</button>
+              
+              <form action={details.link}>
+                  <input type="submit" value="Read this Book" />
+              </form>
+              
             </div>
           </div>
         );

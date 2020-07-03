@@ -41,6 +41,7 @@ export default function FindABookList() {
       category: booksData.volumeInfo.categories.join(","),
       language: booksData.volumeInfo.language,
       imageUrl: booksData.volumeInfo.imageLinks.thumbnail,
+      link : booksData.accessInfo.webReaderLink,
       userId: idUser,
     };
     console.log("Data", data);
