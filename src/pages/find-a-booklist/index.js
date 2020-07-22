@@ -57,7 +57,7 @@ export default function FindABookList() {
   }
 
   return (
-    <div>
+    <div >
       <h2 style={{textAlign:"center"}}>Find a book</h2>
 
       <Form className='form-booklist'>

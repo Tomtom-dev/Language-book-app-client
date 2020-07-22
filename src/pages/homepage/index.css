@@ -1,8 +1,9 @@
 .img-presentation{
-    width: 110em;
+    width: 100%;
     height: 45em;
 }
 
 .text-presentation{
+    margin-top: 2em;
     text-align: center;
 }
