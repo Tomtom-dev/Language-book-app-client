@@ -7,12 +7,17 @@ import SignUp from "./pages/signup";
 import MyBooks from "./pages/my-books";
 import FindABookList from "./pages/find-a-booklist";
 import BookDetails from "./pages/book-details";
+import ReactNotification from 'react-notifications-component'
+import 'react-notifications-component/dist/theme.css'
+
 
 import Navbar from "./components/Navbar";
 
 function App() {
   return (
+    
     <Router>
+      <ReactNotification />
       <div>
         <Navbar />
         <Switch>
