@@ -2,6 +2,7 @@ const initialState = {
   loading: true,
   books: [],
   details: [],
+  selectionBooks: []
 };
 
 export default (state = initialState, action) => {
@@ -42,6 +43,13 @@ export default (state = initialState, action) => {
       return {
         ...state,
         loading: true,
+      };
+    }
+    case "BOOKS_SELECTION_USERS": {
+      return {
+        ...state,
+        loading: true,
+        selectionBooks: action.payload,
       };
     }
     

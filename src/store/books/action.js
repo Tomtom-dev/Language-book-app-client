@@ -42,6 +42,23 @@ export function addBooks(data) {
   };
 }
 
+// delete selected book
+export function removeBooks(data) {
+  return async (dispatch, getState) => {
+    try {
+      const response = await axios.delete("http://localhost:5000/books", data);
+
+      dispatch({ type: "REMOVE_BOOKS", payload: response.data });
+    } catch (error) {
+      if (error.response) {
+        console.log(error.response.data.message);
+      } else {
+        console.log("The error is ", error.message);
+      }
+    }
+  };
+}
+
 //get books corrresponding to the userId
 export const getbookSelected = () => async (dispatch, getState) =>{
   try{
