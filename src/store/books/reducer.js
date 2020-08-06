@@ -1,6 +1,7 @@
 const initialState = {
   list: [],
-  selectedBooks:[]
+  selectedBooks:[],
+  bookToDelete:[]
 };
 
 export default (state = initialState, action) => {
@@ -16,6 +17,11 @@ export default (state = initialState, action) => {
         ...state,
         selectedBooks :[...action.payload]}
     }
+    case "REMOVE_BOOKS":
+      return {
+        ...state,
+        bookToDelete :[...action.payload]
+      }
       
     default:
       return state;

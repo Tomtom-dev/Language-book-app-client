@@ -27,28 +27,31 @@ export default function MyBooks() {
 
   function onSubmit(event){
     event.preventDefault()
-    console.log("remove the book");
+    console.log("Added", event.target.id, " TESTING ", bookSelection);
+
+    const booksData = bookSelection.find((books) => {
+      if (parseInt(event.target.id) === books.id) {
+        return books;
+      }
+    });
+
+    console.log("add book:",booksData);
     
 
-    // const booksData = bookSelection.find((books) => {
-    //   if (books.id === event.target.id) {
-    //     return books;
-    //   }
-    // });
-
     // Data for Post request
-    // const data = {
-    //   name: booksData.volumeInfo.title,
-    //   author: booksData.volumeInfo.authors.join(","),
-    //   description: booksData.volumeInfo.description,
-    //   category: booksData.volumeInfo.categories.join(","),
-    //   language: booksData.volumeInfo.language,
-    //   imageUrl: booksData.volumeInfo.imageLinks.thumbnail,
-    //   link: booksData.accessInfo.webReaderLink,
-    //   userId: id,
-    // };
-    // console.log("Data", data);
-    // dispatch(removeBooks(data))
+    const data = {
+      name: booksData.name,
+      author: booksData.authors,
+      description: booksData.description,
+      category: booksData.category,
+      language: booksData.language,
+      imageUrl: booksData.imageUrl,
+      link: booksData.link,
+      id: booksData.id,
+      userId : id
+    };
+    console.log("Data", data);
+    dispatch(removeBooks(data))
     
   }
 
@@ -82,7 +85,10 @@ export default function MyBooks() {
                         <button className='button_my_page'>Details</button>
                       </Link>
                       
-                        <button onClick={onSubmit} className='button_delete'>Delete</button>
+                        <button
+                        id={userBooks.id} 
+                        onClick={onSubmit} 
+                        className='button_delete'>Delete</button>
                       
                     </div>
                   );

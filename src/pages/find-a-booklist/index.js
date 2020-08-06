@@ -57,6 +57,12 @@ export default function FindABookList() {
       }
     });
 
+    console.log("RESULT",result);
+    
+
+    console.log("add book:",booksData);
+    
+
     // Data for Post request
     const data = {
       name: booksData.volumeInfo.title,
@@ -76,8 +82,6 @@ export default function FindABookList() {
 
     console.log("BOOKS DETAILS ", booksData, "..... DATA ........ ", data);
   }
-
-  
 
   return (
     <div >
