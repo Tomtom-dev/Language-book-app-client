@@ -12,6 +12,11 @@ export const showSelectedBooks = (allBooks) =>({
   payload: allBooks
 })
 
+export const removeBookFromSelection = (book)=>({
+  type:"REMOVE_BOOKS",
+  payload: book
+})
+
 const apiKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
 
 export const fetchProducts = (newList) => async (dispatch, getState) => {
@@ -27,11 +32,28 @@ export const fetchProducts = (newList) => async (dispatch, getState) => {
 };
 
 export function addBooks(data) {
-  return async (dispatch, getState) => {
+  return async (dispatch) => {
     try {
       const response = await axios.post("http://localhost:5000/books", data);
 
       dispatch({ type: "ADD_BOOKS", payload: response.data });
+    } catch (error) {
+      if (error.response) {
+        console.log(error.response.data.message);
+      } else {
+        console.log("The error is ", error.message);
+      }
+    }
+  };
+}
+
+// delete selected book
+export function removeBooks(data) {
+  return async (dispatch, getState) => {
+    try {
+      const response = await axios.put("http://localhost:5000/books", data);
+
+      dispatch(removeBookFromSelection(response.data));
     } catch (error) {
       if (error.response) {
         console.log(error.response.data.message);

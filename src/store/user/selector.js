@@ -7,3 +7,4 @@ export const getUserInfos = (state) => state.userReducer;
 export const getUserInfosId = (state) => state.userReducer.id;
 
 export const selectToken = (state) => state.userReducer.token;
+

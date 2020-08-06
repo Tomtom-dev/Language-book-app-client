@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { fetchProducts, addBooks } from "../../store/books/action";
 import { getBooksRespond } from "../../store/books/selector";
 import { addToSelection } from "../../store/bookSelection/action";
 import { getUserInfosId, selectToken } from "../../store/user/selector";
+import { store } from 'react-notifications-component';
 
 import "./index.css";
 
@@ -18,9 +19,28 @@ export default function FindABookList() {
   const result = useSelector(getBooksRespond);
   const idUser = useSelector(getUserInfosId);
   console.log("User Info", idUser);
-  const history = useHistory();
+  // const history = useHistory();
   //   const token = useSelector(selectToken);
   //   console.log(token);
+
+
+  // notification message for add a book
+  function messageBookAdded (){
+      store.addNotification({
+        type:"success",
+        title: "Book added!",
+        message: "the book is added successfully to your collection ",
+        container:"top-center",
+        insert: "top",
+        animationIn: ['animated', 'fadeIn'],
+        animationOut: ['animated', 'fadeOut'],
+        dismiss:{
+            duration: 5000,
+            showIcon: true
+        },
+        width:800
+      })
+  }
 
   function onSubmit(event) {
     event.preventDefault();
@@ -37,6 +57,12 @@ export default function FindABookList() {
       }
     });
 
+    console.log("RESULT",result);
+    
+
+    console.log("add book:",booksData);
+    
+
     // Data for Post request
     const data = {
       name: booksData.volumeInfo.title,
@@ -51,7 +77,8 @@ export default function FindABookList() {
     console.log("Data", data);
     dispatch(addBooks(data));
     dispatch(addToSelection(data));
-    history.push("/MyBooks");
+    messageBookAdded()
+    // history.push("/MyBooks");
 
     console.log("BOOKS DETAILS ", booksData, "..... DATA ........ ", data);
   }
