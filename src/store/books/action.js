@@ -51,9 +51,11 @@ export function addBooks(data) {
 export function removeBooks(data) {
   return async (dispatch, getState) => {
     try {
-      const response = await axios.put("http://localhost:5000/books", data);
-
-      dispatch(removeBookFromSelection(response.data));
+      const userId = getState().userReducer.id
+      const response = await axios.delete(`http://localhost:5000/bookselection/${userId}`, data);
+      
+      // dispatch(removeBookFromSelection(response.data));
+      dispatch({ type: "REMOVE_BOOKS", payload: response.data });
     } catch (error) {
       if (error.response) {
         console.log(error.response.data.message);
@@ -69,12 +71,10 @@ export const getbookSelected = () => async (dispatch, getState) =>{
   try{
    const userId = getState().userReducer.id
    console.log('IDDDDDDDDDD', userId);
-   
 
    const response = await axios.get(`http://localhost:5000/bookselection/${userId}`)
    console.log("RESPONSE", response);
    
-
    dispatch(showSelectedBooks(response.data))
   }catch(error){
     console.log(error);

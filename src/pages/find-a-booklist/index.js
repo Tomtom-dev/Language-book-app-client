@@ -5,7 +5,7 @@ import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { fetchProducts, addBooks } from "../../store/books/action";
 import { getBooksRespond } from "../../store/books/selector";
 import { addToSelection } from "../../store/bookSelection/action";
-import { getUserInfosId, selectToken } from "../../store/user/selector";
+import { getUserInfosId } from "../../store/user/selector";
 import { store } from 'react-notifications-component';
 
 import "./index.css";

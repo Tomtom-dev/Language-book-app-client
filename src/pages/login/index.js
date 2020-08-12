@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import { useHistory } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
@@ -6,7 +6,7 @@ import Button from "react-bootstrap/Button";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { login } from "../../store/user/action";
-import { selectToken, getUserInfosId } from "../../store/user/selector";
+import {  getUserInfosId } from "../../store/user/selector";
 import "./index.css";
 
 export default function Login() {

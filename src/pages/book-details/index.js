@@ -50,7 +50,7 @@ export default function BookDetails() {
                 {details.description}
               </p>
               
-              <a target="_blank" href={details.link} class="button-ebook">Go to the book</a>
+              <a target="_blank" rel="noopener noreferrer" href={details.link} class="button-ebook">Go to the book</a>
 
             </div>
           </div>

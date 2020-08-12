@@ -3,31 +3,30 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserBooks } from "../../store/booksDetail/action";
 import { selectUserBooks } from "../../store/user/selector";
-import {getBooksSelection} from "../../store/books/selector"
+// import {getBooksSelection} from "../../store/books/selector"
 import {getUserInfosId} from '../../store/user/selector'
-import { getBooksRespond } from "../../store/books/selector";
+// import { getBooksRespond } from "../../store/books/selector";
 import {selectBooks} from "../../store/booksDetail/selector"
 import "./index.css";
 import { removeBooks } from "../../store/books/action";
 
 export default function MyBooks() {
   const userBooks = useSelector(selectUserBooks);
-  const bookSelected= useSelector(getBooksSelection);
+  // const bookSelected= useSelector(getBooksSelection);
   const bookSelection= useSelector(selectBooks);
-  const result = useSelector(getBooksRespond);
+  // const result = useSelector(getBooksRespond);
   const dispatch = useDispatch();
   const id = useSelector(getUserInfosId);
   
   console.log('selection',bookSelection);
   
-
   useEffect(() => {
     dispatch(getUserBooks(id));
   }, [dispatch, id]);
 
   function onSubmit(event){
     event.preventDefault()
-    console.log("Added", event.target.id, " TESTING ", bookSelection);
+    console.log("Delete art number", event.target.id, " TESTING ", bookSelection);
 
     const booksData = bookSelection.find((books) => {
       if (parseInt(event.target.id) === books.id) {
@@ -35,9 +34,8 @@ export default function MyBooks() {
       }
     });
 
-    console.log("add book:",booksData);
+    console.log("delete book:",booksData);
     
-
     // Data for Post request
     const data = {
       name: booksData.name,
