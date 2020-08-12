@@ -26,15 +26,16 @@ export default function MyBooks() {
 
   function onSubmit(event){
     event.preventDefault()
-    console.log("Delete art number", event.target.id, " TESTING ", bookSelection);
+    // console.log("Delete art number", event.target.id, " TESTING ", bookSelection);
 
-    const booksData = bookSelection.find((books) => {
+    const booksData = bookSelection.find(books => {
       if (parseInt(event.target.id) === books.id) {
         return books;
       }
+      return books;
     });
 
-    console.log("delete book:",booksData);
+    // console.log("delete book:",booksData);
     
     // Data for Post request
     const data = {
@@ -48,7 +49,7 @@ export default function MyBooks() {
       id: booksData.id,
       userId : id
     };
-    console.log("Data", data);
+    // console.log("Data", data);
     dispatch(removeBooks(data))
     
   }

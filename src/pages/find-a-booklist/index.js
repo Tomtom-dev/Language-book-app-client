@@ -18,11 +18,10 @@ export default function FindABookList() {
   const dispatch = useDispatch();
   const result = useSelector(getBooksRespond);
   const idUser = useSelector(getUserInfosId);
-  console.log("User Info", idUser);
+  // console.log("User Info", idUser);
   // const history = useHistory();
   //   const token = useSelector(selectToken);
   //   console.log(token);
-
 
   // notification message for add a book
   function messageBookAdded (){
@@ -49,12 +48,13 @@ export default function FindABookList() {
 
   function addBook(event) {
     event.preventDefault();
-    console.log("Added", event.target.id, " TESTING ", result);
+    // console.log("Added", event.target.id, " TESTING ", result);
 
     const booksData = result.find((books) => {
       if (books.id === event.target.id) {
         return books;
       }
+      return books;
     });
 
     console.log("RESULT",result);
@@ -74,13 +74,13 @@ export default function FindABookList() {
       link: booksData.accessInfo.webReaderLink,
       userId: idUser,
     };
-    console.log("Data", data);
+    // console.log("Data", data);
     dispatch(addBooks(data));
     dispatch(addToSelection(data));
     messageBookAdded()
     // history.push("/MyBooks");
 
-    console.log("BOOKS DETAILS ", booksData, "..... DATA ........ ", data);
+    // console.log("BOOKS DETAILS ", booksData, "..... DATA ........ ", data);
   }
 
   return (

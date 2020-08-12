@@ -14,7 +14,7 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const token = useSelector(getUserInfosId);
   const dispatch = useDispatch();
-  console.log("Token", token);
+  // console.log("Token", token);
 
   const history = useHistory();
 
