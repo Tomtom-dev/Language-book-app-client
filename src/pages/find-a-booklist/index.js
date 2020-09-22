@@ -46,18 +46,18 @@ export default function FindABookList() {
     dispatch(fetchProducts({ language, word }));
   }
 
+
   function addBook(event) {
     event.preventDefault();
-    // console.log("Added", event.target.id, " TESTING ", result);
+    console.log("WHAT 1", event.target)
+    console.log("Added", event.target.id, " TESTING ", result);
+    
+    const booksData = result.find(book => 
+      book.id === event.target.id
+      
+    );
 
-    const booksData = result.find((books) => {
-      if (books.id === event.target.id) {
-        return books;
-      }
-      return books;
-    });
-
-    console.log("RESULT",result);
+    // console.log("RESULT",result);
     
 
     console.log("add book:",booksData);
