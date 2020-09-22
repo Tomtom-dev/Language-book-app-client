@@ -9,6 +9,7 @@ import {getUserInfosId} from '../../store/user/selector'
 import {selectBooks} from "../../store/booksDetail/selector"
 import "./index.css";
 import { removeBooks } from "../../store/books/action";
+import { deleteFromSelection } from "../../store/bookSelection/action";
 
 export default function MyBooks() {
   const userBooks = useSelector(selectUserBooks);
@@ -26,31 +27,29 @@ export default function MyBooks() {
 
   function onSubmit(event){
     event.preventDefault()
-    // console.log("Delete art number", event.target.id, " TESTING ", bookSelection);
-
-    const booksData = bookSelection.find(books => {
-      if (parseInt(event.target.id) === books.id) {
-        return books;
-      }
-      return books;
-    });
+    console.log("Delete art number", event.target.id, " TESTING ", bookSelection);
+    
+    const booksData = bookSelection.find(books => 
+      parseInt(event.target.id) === books.id 
+    );
 
     // console.log("delete book:",booksData);
     
     // Data for Post request
     const data = {
+      id: booksData.id,
       name: booksData.name,
       author: booksData.authors,
       description: booksData.description,
       category: booksData.category,
       language: booksData.language,
       imageUrl: booksData.imageUrl,
-      link: booksData.link,
-      id: booksData.id,
+      link: booksData.link, 
       userId : id
     };
-    // console.log("Data", data);
-    dispatch(removeBooks(data))
+    console.log("Data", data);
+    dispatch(deleteFromSelection(data))
+    // dispatch(removeBooks(data))
     
   }
 

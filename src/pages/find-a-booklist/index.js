@@ -49,18 +49,14 @@ export default function FindABookList() {
 
   function addBook(event) {
     event.preventDefault();
-    console.log("WHAT 1", event.target)
-    console.log("Added", event.target.id, " TESTING ", result);
-    
+    // console.log("WHAT 1", event.target)
+    // console.log("Added", event.target.id, " TESTING ", result);
     const booksData = result.find(book => 
-      book.id === event.target.id
-      
+      book.id === event.target.id     
     );
 
     // console.log("RESULT",result);
-    
-
-    console.log("add book:",booksData);
+    // console.log("add book:",booksData);
     
 
     // Data for Post request
