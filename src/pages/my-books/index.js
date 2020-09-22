@@ -8,7 +8,7 @@ import {getUserInfosId} from '../../store/user/selector'
 // import { getBooksRespond } from "../../store/books/selector";
 import {selectBooks} from "../../store/booksDetail/selector"
 import "./index.css";
-import { removeBooks } from "../../store/books/action";
+
 import { deleteFromSelection } from "../../store/bookSelection/action";
 
 export default function MyBooks() {
@@ -55,7 +55,7 @@ export default function MyBooks() {
 
   return (
     <div>
-      <h2 className='heading-center'>My favourite books</h2>
+      <h2 className='heading-center container-text'>My favourite books</h2>
       <div className='border_my_page'>
         <div className='wrapper'>
           {userBooks.map((books) => {

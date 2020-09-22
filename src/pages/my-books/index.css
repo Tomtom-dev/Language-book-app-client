@@ -1,12 +1,10 @@
 
 .heading-center {
     text-align: center;
-    padding: 50px;
+    
 }
 
-.border_my_page {
-    padding: 5%;
-}
+
 
 .books {
     display: flex;
@@ -56,3 +54,4 @@
 .test:hover{
     box-shadow: 30px 20px 16px 0 rgba(0,0,0,0.2);
   }
+

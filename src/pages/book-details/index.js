@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams,Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getBookDetails } from "../../store/booksDetail/action";
 
@@ -18,12 +18,14 @@ export default function BookDetails() {
   }, [dispatch, id]);
 
   return (
-    <div className='div_main'>
-      Book Details
+    <div className='div_main bold'>
+      <Link to="/MyBooks">return to the selection</Link>
+      
+      <div className="container-text">Books details</div>
       {bookDetails.map((details) => {
         console.log("BookDetails", details);
         return (
-          <div className='div_book_detais'>
+          <div className='form_book'>
             <div className='image-book_details'>
               <img
                 src={details.imageUrl}
@@ -32,21 +34,21 @@ export default function BookDetails() {
                 width='300px'
               />
             </div>
-            <div>
+            <div className="form_book_info">
               <p>
-                <b className='div_left'>Title</b>
+                <b className='div_left'>Title : </b>
                 {details.name}
               </p>
               <p>
-                <b className='div_left'>Author</b>
+                <b className='div_left'>Author : </b>
                 {details.author}
               </p>
               <p>
-                <b className='div_left'>Language</b>
+                <b className='div_left'>Language : </b>
                 {details.language}
               </p>
               <p>
-                <b className='div_left'>Description</b>
+                <b className='div_left'>Description : </b>
                 {details.description}
               </p>
               

@@ -1,24 +1,5 @@
-.div_main {
-    padding: 5%;
-    padding-bottom: 100%;
-}
 
-.div_book_detais {
-    text-align: center;
-    padding: 10%;
-    float: right;
-}
 
-.image-book_details {
-    margin-left: 50px;
-    margin-bottom: 1000px;
-    float: left;
-}
-
-.div_left {
-    float: left;
-    padding-left: 100px;
-}
 .button-ebook{ 
     -webkit-appearance: button;
     -moz-appearance: button;
@@ -52,4 +33,40 @@
 	position:relative;
 	top:1px;
 }
+
+.form_book {
+	display: flex;
+	border:5px solid rgb(27, 233, 216);
+	height: 50%;
+	background-color: rgba(124, 230, 212, 0.993);
+}
+
+.form_book_info{
+	margin:2rem;
+	align-items: center;
+	text-align: center;
+}
+
+@keyframes filling {
+	from{
+	  background-position: center 25%;
+	}
+	to {
+	  background-position: center 50%;
+	}
+  }
+  
+  .container-text {
+	  text-align: center;
+	background-image:  url(https://cdn.pixabay.com/photo/2016/02/16/21/07/books-1204029_960_720.jpg);
+	-webkit-text-fill-color: transparent;
+	-webkit-background-clip: text;
+	color:  #FFFFFF;
+	text-transform: uppercase;
+	padding-top: 20px;
+	font-size: 120px;
+	font-weight:900;
+	font-family: 'Biko', sans-serif;
+	animation: filling 5s ease forwards;
+  }
 
