@@ -39,6 +39,8 @@
 	border:5px solid rgb(27, 233, 216);
 	height: 50%;
 	background-color: rgba(124, 230, 212, 0.993);
+	border-radius: 1rem;
+	margin: 1rem;
 }
 
 .form_book_info{

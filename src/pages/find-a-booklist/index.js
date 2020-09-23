@@ -111,7 +111,7 @@ export default function FindABookList() {
         <Button onClick={onSubmit}>search</Button>
       </FormGroup>
       <div className='image_border'>
-        <div className='image_find_book'>
+        <div className="form_results">
           {/* {result.map((book) => (
             <img
               key={book.id}
@@ -121,7 +121,7 @@ export default function FindABookList() {
           ))} */}
           {result.map((book) => {
             return (
-              <div key={book.id}>
+              <div key={book.id} className="form_result">
                 <img
                   src={book.volumeInfo.imageLinks.thumbnail}
                   alt={book.title}
