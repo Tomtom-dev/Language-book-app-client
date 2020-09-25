@@ -34,7 +34,7 @@ export const fetchProducts = (newList) => async (dispatch, getState) => {
 export function addBooks(data) {
   return async (dispatch) => {
     try {
-      const response = await axios.post("http://localhost:5000/books", data);
+      const response = await axios.post("https://language-book-app.herokuapp.com/books", data);
 
       dispatch({ type: "ADD_BOOKS", payload: response.data });
     } catch (error) {
@@ -52,7 +52,7 @@ export function removeBooks(data) {
   return async (dispatch, getState) => {
     try {
       const userId = getState().userReducer.id
-      const response = await axios.delete(`http://localhost:5000/bookselection/${userId}`, data);
+      const response = await axios.delete(`https://language-book-app.herokuapp.com/${userId}`, data);
       
       // dispatch(removeBookFromSelection(response.data));
       dispatch({ type: "REMOVE_BOOKS", payload: response.data });
@@ -70,10 +70,10 @@ export function removeBooks(data) {
 export const getbookSelected = () => async (dispatch, getState) =>{
   try{
    const userId = getState().userReducer.id
-   console.log('IDDDDDDDDDD', userId);
+  //  console.log('IDDDDDDDDDD', userId);
 
-   const response = await axios.get(`http://localhost:5000/bookselection/${userId}`)
-   console.log("RESPONSE", response);
+   const response = await axios.get(`https://language-book-app.herokuapp.com/${userId}`)
+  //  console.log("RESPONSE", response);
    
    dispatch(showSelectedBooks(response.data))
   }catch(error){

@@ -1,12 +1,13 @@
 nav ul{
-    background-color: rgb(45, 73, 62);
     display:flex;
-    justify-content:space-around;
-    padding:1em;
-    margin:auto;
+	justify-content:space-around;
+	align-items: center;
+	width: 100%;
+	height: 3rem;
+    margin: 0;
 }
 
-.button:hover {
+/* .button:hover {
     color: green;
 }
 
@@ -34,8 +35,65 @@ nav ul{
 .button-navbar:active {
 	position:relative;
 	top:1px;
-}
+} */
 
 /* .active {
     background-color:  rgb(52, 97, 97);;
 } */
+
+.containe
+{
+    font-family: Raleway;
+	text-align: center;
+}
+
+.containe a
+{
+    color: #FFF;
+    text-decoration: none;
+    font: 20px Raleway;
+    position: relative;
+    z-index: 0;
+    cursor: pointer;
+}
+
+.gray
+{
+    background: #9e9e9e;
+}
+
+.highlightTextIn a
+{
+    color: rgba(0, 0, 0, 0.4); 
+}
+
+.highlightTextIn a:after
+{
+    transform: scale(1.2);
+} 
+
+.highlightTextIn a:hover:before
+{
+    transform: scale(1);
+    opacity: 1;
+}
+
+.highlightTextIn a:before
+{
+    position: absolute;
+    color: #FFF;
+    top: 0px;
+    left: 0px;
+    padding: 10px;
+    overflow: hidden;
+    content: attr(alt);
+    transition: all 0.3s;
+    transform: scale(0.8);
+    opacity: 0;
+} 
+
+.button:hover{
+    color:  #FFF;
+	text-decoration: none;
+    background: #9e9e9e;
+}

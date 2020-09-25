@@ -38,7 +38,7 @@ export default function Login() {
     setPassword("");
   }
   return (
-    <div>
+    <div className="form-size contain">
       <h2 style={{ textAlign: "center" }}>Login</h2>
       <Container>
         <Form>

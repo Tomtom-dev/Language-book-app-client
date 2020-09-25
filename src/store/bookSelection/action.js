@@ -17,7 +17,7 @@ export const deleteFromSelection = (book) => async (dispatch, getState) => {
         console.log("book ??", book);
         dispatch({type: BOOK_DELETE_REQUEST, payload: book})
         const userId = getState().userReducer.id
-        const {data}= await axios.put(`http://localhost:5000/bookselection/${userId}`,
+        const {data}= await axios.put(`https://language-book-app.herokuapp.com/${userId}`,
          {book})
         dispatch({type: BOOK_DELETE_SUCCESS, payload: data, success:true})
     }catch (error){

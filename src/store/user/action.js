@@ -12,7 +12,7 @@ export const login = (newLogin) =>{
       try {
 
         const {email,password}= newLogin
-         const response = await axios.post(`http://localhost:5000/login`,{
+         const response = await axios.post(`https://language-book-app.herokuapp.com/login`,{
              email,
              password
          })
@@ -69,7 +69,7 @@ export const signUp = (name, email, password) => {
   return async (dispatch, getState) => {
     
     try {
-      const response = await axios.post(`http://localhost:5000/signup`, {
+      const response = await axios.post(`https://language-book-app.herokuapp.com/signup`, {
         name,
         email,
         password,

@@ -13,25 +13,25 @@ export default function Navbar() {
     
     
   return (
-    <nav className='nav-wrapper grey darken-3'>
+    <nav className='gray containe highlightTextIn'>
       <ul>
-        <NavLink exact to='/' className='button-navbar'>
+        <NavLink exact to='/' className='button'>
           Home
         </NavLink>
-        <NavLink to='/findBook' className='button-navbar'>
+        <NavLink to='/findBook' className='button'>
           Find a book
         </NavLink>
         {userId ? (
-          <NavLink to='/MyBooks' className='button-navbar'>
+          <NavLink to='/MyBooks' className='button'>
             My books
           </NavLink>
         ) : null}
         {userId ? (
-          <NavLink className="button-navbar" to='/homepage' onClick={() => dispatch(logOut())}>
+          <NavLink className="button" to='/homepage' onClick={() => dispatch(logOut())}>
             Log out
           </NavLink>
         ) : (
-          <NavLink to='/login' className='button-navbar'>
+          <NavLink to='/login' className='button'>
             Log in
           </NavLink>
         )}
