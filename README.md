@@ -1,68 +1,42 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
+# :eyeglasses: :book: Group project with Surpiya Shekar / Language-book-app :book: :coffee:
 
-### `npm start`
+## what this app is about
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+:point_right: :point_right:  [the deployed version](https://language-book-app.netlify.app/) :point_left: :point_left:
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+On this website, you can search for books in 3 different languages : Dutch, english and French and add them to your selection and read them. 
 
-### `npm test`
+## Table of content
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- [App-demo](#App-demo)
+- [Technology used](#technology-used)
+- [Goals for this project](#goals-for-this-project)
+- [User Stories and Wireframe](#user-stories-and-wireframe)
+- [Git workflow](#git-workflow)
+- [Server-repository](#server-repo)
 
-### `npm run build`
+### App-demo
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Technology used
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+- [React](https://github.com/Tomtom-dev/Language-book-app-client/blob/development/src/index.js)
+- [Redux](https://github.com/Tomtom-dev/Language-book-app-client/tree/development/src/store)
+- [Express](https://github.com/SupriyaShekar123/Language_Book_App-server/blob/development/index.js)
+- [Rest API](https://github.com/SupriyaShekar123/Language_Book_App-server/tree/development/routers)
+- [Sequelize](https://github.com/SupriyaShekar123/Language_Book_App-server/blob/development/models/books.js)
+- [Google-Book-API](https://github.com/Tomtom-dev/Language-book-app-client/blob/development/src/store/books/action.js)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Goals for this project
 
-### `npm run eject`
+## User Stories and Wireframe
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### User stories for this project:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Wireframe
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Server-repository
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+https://github.com/SupriyaShekar123/Language_Book_App-server

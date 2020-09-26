@@ -112,13 +112,6 @@ export default function FindABookList() {
       </FormGroup>
       <div className='image_border'>
         <div className="form_results">
-          {/* {result.map((book) => (
-            <img
-              key={book.id}
-              src={book.volumeInfo.imageLinks.thumbnail}
-              alt={book.title}
-            />
-          ))} */}
           {result.map((book) => {
             return (
               <div key={book.id} className="form_result">

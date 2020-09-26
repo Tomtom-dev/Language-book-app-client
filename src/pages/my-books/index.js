@@ -19,7 +19,7 @@ export default function MyBooks() {
   const dispatch = useDispatch();
   const id = useSelector(getUserInfosId);
   
-  console.log('selection',bookSelection);
+  // console.log('selection',bookSelection);
   
   useEffect(() => {
     dispatch(getUserBooks(id));
