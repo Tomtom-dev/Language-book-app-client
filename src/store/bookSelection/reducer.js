@@ -11,7 +11,7 @@ export default function selectedBooksReducer (state=initialState,action) {
         case BOOK_DELETE_REQUEST:
             return {loading: true};
         case BOOK_DELETE_SUCCESS:
-            return {loading:false, state: action.payload}
+            return {loading:false, state: state}
         case BOOK_DELETE_FAIL:
             return {loading:false, error: action.payload}
         default:
