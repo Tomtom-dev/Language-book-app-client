@@ -47,7 +47,7 @@ export default function MyBooks() {
       link: booksData.link, 
       userId : id
     };
-    console.log("Data", data);
+    // console.log("Data", data);
     dispatch(deleteFromSelection(data))
     // dispatch(removeBooks(data))
     

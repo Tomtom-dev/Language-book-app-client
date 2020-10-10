@@ -1,16 +1,52 @@
-.background_video{
-    width: 100%;
-    height: 100%;
+ 
+ 
+ .background_video{
+    min-width: 100%;
+    min-height: 100%;
+    position: fixed;;
+    z-index: 1;
 }
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet');
 
 .text-presentation{
-    width: 100%;
-    font-size: 18px;
+    font-family: 'Alfa Slab One', cursive;
+    font-size:35px;
+    width: 32%;
+    height: 25%;
     padding: 10px;
     border: none;
-    background: #000;
     color: #fff;
     cursor: pointer;
     text-align: center;
-    background-color: black;
+    background-color:#A9A9A9;
+    position: relative;
+    z-index: 2;
+    border-radius: 2em;
+    animation-name: transition-info;
+    animation-fill-mode: forwards;
+    animation-duration: 3.5s;
+}
+
+.presentation-title{
+    font-family: 'Alfa Slab One', cursive;
+    font-weight: bold;
+    color: azure;
+    margin:3rem;
+    font-size: 100px;
+    text-align: center;
+    position: absolute;
+    z-index: 3;
+    animation-name: transition-title;
+    animation-fill-mode: forwards;
+    animation-duration: 1.5s;
+}
+
+
+@keyframes transition-info{
+    0%{ transform: translateX(-300em) translateY(-300em);}
+    100% { transform: translateX(5em) translateY(28em)}
+}
+@keyframes transition-title{
+    0%{ transform: translateX(-300px);}
+    100%{ transform: translateX(400px)}
 }

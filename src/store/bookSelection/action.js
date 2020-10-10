@@ -12,13 +12,18 @@ export const addToSelection = (book)=>{
     }
 }
 
+export const fetchSelectionUpdated = book =>({
+  type: BOOK_DELETE_SUCCESS,
+  payload: book
+})
+
 export const deleteFromSelection = (book) => async (dispatch, getState) => {
     try {
-      console.log("book ??", book.id);
+      // console.log("book ??", book.id);
       dispatch({ type: BOOK_DELETE_REQUEST, payload: book });
       const userId = getState().userReducer.id;
       const booksId = book.id;
-      console.log("BOOKSID" + booksId);
+      // console.log("BOOKSID" + booksId);
       const { data } = await axios.delete(
         `https://language-book-app.herokuapp.com/users/${userId}/books/${booksId}`,
         {
