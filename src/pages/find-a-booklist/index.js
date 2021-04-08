@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 // import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { fetchProducts, addBooks } from "../../store/books/action";
 import { getBooksRespond } from "../../store/books/selector";
 import { addToSelection } from "../../store/bookSelection/action";
@@ -18,10 +17,13 @@ export default function FindABookList() {
   const dispatch = useDispatch();
   const result = useSelector(getBooksRespond);
   const idUser = useSelector(getUserInfosId);
-  // console.log("User Info", idUser);
-  // const history = useHistory();
-  //   const token = useSelector(selectToken);
-  //   console.log(token);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      
+    }, 500);
+    return () => clearInterval(interval)
+  },[]);
 
   // notification message for add a book
   function messageBookAdded (){
@@ -46,18 +48,11 @@ export default function FindABookList() {
     dispatch(fetchProducts({ language, word }));
   }
 
-
   function addBook(event) {
     event.preventDefault();
-    // console.log("WHAT 1", event.target)
-    // console.log("Added", event.target.id, " TESTING ", result);
     const booksData = result.find(book => 
       book.id === event.target.id     
     );
-
-    // console.log("RESULT",result);
-    // console.log("add book:",booksData);
-    
 
     // Data for Post request
     const data = {
@@ -70,46 +65,57 @@ export default function FindABookList() {
       link: booksData.accessInfo.webReaderLink,
       userId: idUser,
     };
-    // console.log("Data", data);
     dispatch(addBooks(data));
     dispatch(addToSelection(data));
     messageBookAdded()
-    // history.push("/MyBooks");
-
-    // console.log("BOOKS DETAILS ", booksData, "..... DATA ........ ", data);
   }
+
+  console.log(` input : ${word} language : ${language}`);
 
   return (
     <div >
       <h2 className="container-text" style={{textAlign:"center"}}>Find a book</h2>
+      <form className="wrap">
 
-      <Form className='form-booklist'>
-        <FormGroup className='input-select-size'>
-          <Label>choose a book </Label>
-          <Input
-            type='text'
-            placeholder='search'
-            onChange={(event) => setWord(event.target.value)}
-            value={word}></Input>
-        </FormGroup>
+      <div className="search">
 
-        <FormGroup className='input-select-size'>
-          <Label>select a language</Label>
-          <Input
-            className='input-select-size'
-            type='select'
-            onChange={(event) => setLanguage(event.target.value)}
-            value={language}>
-            <option defaultValue='selected'>choose a language</option>
-            <option>en</option>
-            <option>nl</option>
-            <option>fr</option>
-          </Input>
-        </FormGroup>
-      </Form>
-      <FormGroup style={{ paddingLeft: "10%" }}>
-        <Button onClick={onSubmit}>search</Button>
-      </FormGroup>
+          <input
+          type='text'
+          className="searchTerm"
+          placeholder='search'
+          onChange={(event) => setWord(event.target.value)}
+          value={word}
+          required
+          ></input>
+
+          <select
+          className='input-select-size'
+          type='select'
+          className="searchTerm"
+          placeholder='search'
+          onChange={(event) => setLanguage(event.target.value)}
+          value={language}
+          required
+          >
+            {/* <option defaultValue='selected'>Select a language</option> */}
+            <option value="en">English</option>
+            <option value="nl">Dutch</option>
+            <option value="fr">French</option>
+          </select>
+
+        <button 
+        onClick={onSubmit}
+        className="searchButton"
+        >
+          <img
+          
+          src={require('./s2.png')}
+          ></img>
+        </button>
+      </div>
+      </form>
+
+      
       <div className='image_border'>
         <div className="form_results">
           {result.map((book) => {
