@@ -126,19 +126,18 @@ export default function FindABookList() {
                 <div className="description">
                   <p>{book.volumeInfo.title}</p>
                   <p>{book.volumeInfo.authors}</p>
-                  {idUser !== undefined && (
+                  {idUser ?
                     <div className='div-button_find_book'>
-                      <button
-                        id={book.id}
-                        onClick={addBook}
-                        className='button_find_books'>
-                        Add
-                      </button>
-                    </div>
-                  )}
-
-                </div>
-              
+                    <button
+                      id={book.id}
+                      onClick={addBook}
+                      className='button_find_books'>
+                      Add
+                    </button>
+                  </div> :
+                    <button>Login to see</button>
+                  }
+                </div> 
               </div>
             );
           })}
