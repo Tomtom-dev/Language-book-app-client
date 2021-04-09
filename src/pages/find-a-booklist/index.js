@@ -70,8 +70,6 @@ export default function FindABookList() {
     messageBookAdded()
   }
 
-  console.log(` input : ${word} language : ${language}`);
-
   return (
     <div >
       <h2 className="container-text" style={{textAlign:"center"}}>Find a book</h2>
@@ -97,7 +95,7 @@ export default function FindABookList() {
           value={language}
           required
           >
-            {/* <option defaultValue='selected'>Select a language</option> */}
+            <option defaultValue='en'>Select a language</option>
             <option value="en">English</option>
             <option value="nl">Dutch</option>
             <option value="fr">French</option>
@@ -108,7 +106,7 @@ export default function FindABookList() {
         className="searchButton"
         >
           <img
-          
+          alt="search_logo"
           src={require('./s2.png')}
           ></img>
         </button>
@@ -116,7 +114,7 @@ export default function FindABookList() {
       </form>
 
       
-      <div className='image_border'>
+      <div>
         <div className="form_results">
           {result.map((book) => {
             return (
@@ -125,18 +123,22 @@ export default function FindABookList() {
                   src={book.volumeInfo.imageLinks.thumbnail}
                   alt={book.title}
                 />
-                <p>{book.volumeInfo.authors}</p>
-                {/* <p>{book.id}</p> */}
-                {idUser !== undefined && (
-                  <div className='div-button_find_book'>
-                    <button
-                      id={book.id}
-                      onClick={addBook}
-                      className='button_find_books'>
-                      Add
-                    </button>
-                  </div>
-                )}
+                <div className="description">
+                  <p>{book.volumeInfo.title}</p>
+                  <p>{book.volumeInfo.authors}</p>
+                  {idUser !== undefined && (
+                    <div className='div-button_find_book'>
+                      <button
+                        id={book.id}
+                        onClick={addBook}
+                        className='button_find_books'>
+                        Add
+                      </button>
+                    </div>
+                  )}
+
+                </div>
+              
               </div>
             );
           })}
