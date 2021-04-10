@@ -33,6 +33,7 @@
     height: 20rem;
     overflow: hidden;
     position: relative;
+    border-radius: 15px;
     background: radial-gradient(#111 50%, #000 100%);
 }
 
@@ -50,9 +51,9 @@
 }
 
 .description{
+  width: 100%;
   bottom: 0;
   font-size: 18px;
-
   position: absolute;
   color: #fff;
   text-align: center;

@@ -1,5 +1,6 @@
 import React, { useState,useEffect } from "react";
 // import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts, addBooks } from "../../store/books/action";
 import { getBooksRespond } from "../../store/books/selector";
@@ -135,7 +136,8 @@ export default function FindABookList() {
                       Add
                     </button>
                   </div> :
-                    <button>Login to see</button>
+                  <Link to={`/login`}><button>Login to see</button></Link>
+                    
                   }
                 </div> 
               </div>
