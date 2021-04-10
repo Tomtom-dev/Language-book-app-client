@@ -7,7 +7,6 @@ import { getBooksRespond } from "../../store/books/selector";
 import { addToSelection } from "../../store/bookSelection/action";
 import { getUserInfosId } from "../../store/user/selector";
 import { store } from 'react-notifications-component';
-
 import "./index.css";
 
 export default function FindABookList() {
@@ -88,7 +87,6 @@ export default function FindABookList() {
           ></input>
 
           <select
-          className='input-select-size'
           type='select'
           className="searchTerm"
           placeholder='search'
@@ -139,7 +137,7 @@ export default function FindABookList() {
                   <Link to={`/login`}>
                     <button 
                     className="button-ebook"
-                    >Login to see
+                    >Login to read
                     </button>
                     </Link>
                   }

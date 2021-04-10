@@ -10,7 +10,6 @@
 .image_find_book {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    /* grid-template-rows: 25% 100px auto; */
     grid-gap: 5%;
 }
 
@@ -40,7 +39,7 @@
 
 .form_result img{
   box-sizing: border-box;
-  transform: scale(1.3);
+  transform: scale(1.1);
   height: 100%;
   width: 100%;
 }
@@ -77,6 +76,17 @@
   }
 
   .searchTerm {
+    background-color: #fff;
+    width: 100%;
+    border: 3px solid #9e9e9e;
+    border-right: none;
+    padding: 5px;
+    height: 3em;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    color: rgb(43, 34, 34);
+  }
+  .searchTerm_b {
     background-color: #fff;
     width: 100%;
     border: 3px solid #9e9e9e;
