@@ -132,12 +132,16 @@ export default function FindABookList() {
                     <button
                       id={book.id}
                       onClick={addBook}
-                      className='button_find_books'>
+                      className='button-ebook'>
                       Add
                     </button>
                   </div> :
-                  <Link to={`/login`}><button>Login to see</button></Link>
-                    
+                  <Link to={`/login`}>
+                    <button 
+                    className="button-ebook"
+                    >Login to see
+                    </button>
+                    </Link>
                   }
                 </div> 
               </div>
