@@ -19,10 +19,10 @@
 }
 
 .form_results{
-    display: flex;
-    flex-wrap: wrap;
-    margin:auto;
-    
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  margin:auto;   
 }
 
 .form_result{
@@ -144,3 +144,19 @@
     position:relative;
     top:1px;
   }
+
+  @media screen and ( max-width:904px){
+    h2.container-text{
+      font-size: 65px;
+    }
+}
+  @media screen and ( max-width:768px){
+    .wrap{
+      width: 70%;
+    }
+}
+  @media screen and ( max-width:622px){
+    .form_results{
+      width: 60%;
+    }
+}
