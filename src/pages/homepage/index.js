@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from "react-router-dom";
 import './index.css'
 import Biblio2 from "./Biblio22.mp4"
 
@@ -20,7 +21,7 @@ export default function Homepage() {
                         <div className="text-presentation">
                             
                             <p>Are you looking for inspiring book in a different languages ?</p>
-                            <p>find good references and exiting ebooks <a href="/findBook">here</a> </p>
+                            <p>find good references and exiting ebooks  <Link to="/findBook">Here</Link> </p>
                         </div>
                 </div>
             </div>
