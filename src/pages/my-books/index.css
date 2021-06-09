@@ -2,6 +2,13 @@
     text-align: center; 
 }
 
+.return{
+    font-weight: bold;
+    margin-right: 1em;
+    margin-top: 2em;
+    padding: 1em;
+}
+
 .books {
     display: flex;
     flex-direction: row;
@@ -46,6 +53,7 @@
     background-color: #e0e0e0;
     
 }
+
 
 .test:hover{
     box-shadow: 30px 20px 16px 0 rgba(0,0,0,0.2);

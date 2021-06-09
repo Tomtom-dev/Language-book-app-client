@@ -19,7 +19,7 @@ export default function BookDetails() {
 
   return (
     <div className='div_main bold'>
-      <Link to="/MyBooks">return to the selection</Link>
+      <Link to="/MyBooks" className="return">return to the selection</Link>
       
       <div className="container-text">Books details</div>
       {bookDetails.map((details) => {
