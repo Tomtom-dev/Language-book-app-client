@@ -73,3 +73,13 @@
 	animation: filling 5s ease forwards;
   }
 
+  @media screen and ( max-width:1104px){
+    div.container-text{
+		font-size: 60px;
+	}
+}
+  @media screen and ( max-width:880px){
+    .form_book{
+		display:block ;
+	}
+}

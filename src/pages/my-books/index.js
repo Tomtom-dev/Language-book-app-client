@@ -55,7 +55,7 @@ export default function MyBooks() {
 
   return (
     <div>
-      <h2 className='heading-center container-text'>My favourite books</h2>
+      <h2 className='heading-center container-text'>My favorite books</h2>
       <div className='border_my_page'>
         <div className='wrapper'>
           {userBooks.map((books) => {
